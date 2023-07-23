@@ -58,7 +58,7 @@ jobs:
           
       - name: Log into Azure CLI with service principal
         uses: azure/login@v1.4.2
-          with:
+        with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name : Swap slots
