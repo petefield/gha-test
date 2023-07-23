@@ -55,3 +55,13 @@ jobs:
           slot-name: 'staging'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6D870D3786CC429CA4394933EEC0CB40 }}
           package: .
+          
+      - name: Log into Azure CLI with service principal
+        uses: azure/login@v1.4.2
+          with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name : Swap slots
+          run: az webapp deployment slot swap -s ${{ env.SLOT_NAME }} -n ${{ env.WEBAPP_NAME }} -g ${{ env.RESOURCE_GROUP }}
+          
+         
