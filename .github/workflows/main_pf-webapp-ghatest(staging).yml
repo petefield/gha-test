@@ -59,7 +59,7 @@ jobs:
       - name: Log into Azure CLI with service principal
         uses: azure/login@v1.4.2
         with:
-          creds: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6D870D3786CC429CA4394933EEC0CB40 }}
+          creds: ${{ secrets.AZURECREDENTIALS }}
 
       - name : Swap slots
         run: az webapp deployment slot swap -s $staging -n 'pf-webapp-ghatest' -g gha-test
