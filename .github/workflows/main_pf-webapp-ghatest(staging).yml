@@ -51,7 +51,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'pf-webapp-ghatest'
+          app-name: 'webapp-pf-fieldfamilylaughs'
           slot-name: 'staging'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6D870D3786CC429CA4394933EEC0CB40 }}
           package: .
@@ -62,6 +62,6 @@ jobs:
           creds: ${{ secrets.AZURECREDENTIALS }}
 
       - name : Swap slots
-        run: az webapp deployment slot swap -s staging -n 'pf-webapp-ghatest' -g gha-test
+        run: az webapp deployment slot swap -s staging -n 'webapp-pf-fieldfamilylaughs' -g rg-pf-fieldfamilylaughs
           
          
